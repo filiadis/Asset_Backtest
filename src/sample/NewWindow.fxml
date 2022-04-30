@@ -1,0 +1,46 @@
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.VBox?>
+<GridPane fx:controller="sample.NewWindowController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
+          stylesheets="@styles.css" fx:id="newGridPane">
+
+    <VBox GridPane.columnIndex="0" GridPane.rowIndex="0" spacing="15">
+        <Label text="Total return %"/>
+        <TextField fx:id="totalReturnPercent" editable="false"/>
+
+        <Label text="Max daily drawdown"/>
+        <TextField fx:id="maxDailyDrawdown" editable="false"/>
+
+        <Label text="Number of position openings"/>
+        <TextField fx:id="numPosOpenings" editable="false"/>
+
+        <Label text="Percentage of winning trades %"/>
+        <TextField fx:id="numWinTrades" editable="false"/>
+
+        <Label text="Percentage of losing trades %"/>
+        <TextField fx:id="numLosingTrades" editable="false"/>
+
+        <Label text="Profit factor"/>
+        <TextField fx:id="profitFactor" editable="false"/>
+    </VBox>
+
+
+    <LineChart GridPane.columnIndex="1" GridPane.rowIndex="0" fx:id="chart" id="chart"
+               prefHeight="300" prefWidth="600">
+        <xAxis>
+            <CategoryAxis side="BOTTOM" label=" " />
+        </xAxis>
+        <yAxis>
+            <NumberAxis side="LEFT" label="Price" />
+        </yAxis>
+    </LineChart>
+
+
+
+</GridPane>

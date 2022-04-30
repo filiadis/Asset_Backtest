@@ -1,0 +1,57 @@
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.CheckBox?>
+
+<GridPane fx:controller="sample.Controller"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
+          stylesheets="@styles.css" fx:id="gridPane">
+
+    <Label text = "-- This application backtests a Moving Average Crossover strategy, using data with Yahoo Finance format --"
+           GridPane.columnIndex="0" GridPane.rowIndex="0" fx:id="intro"/>
+
+    <Button text = "Load new asset"  GridPane.columnIndex="0" GridPane.rowIndex="1" fx:id="BLoad"  onAction="#handleClick" />
+
+    <LineChart GridPane.columnIndex="0" GridPane.rowIndex="2" fx:id="chart"
+               prefHeight="400" prefWidth="800">
+        <xAxis>
+            <CategoryAxis side="BOTTOM" label=" " tickLabelsVisible="false" fx:id="xAxis" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis side="LEFT"  label="Price" fx:id="yAxis"/>
+        </yAxis>
+    </LineChart>
+
+    <Label text="STATUS INFO" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <TextField GridPane.columnIndex="0" GridPane.rowIndex="4" fx:id="dialogBox"/>
+
+
+    <VBox GridPane.columnIndex="1" GridPane.rowIndex="2" fx:id="vBox" spacing="15" id="vBox">
+        <Label text="Set Short MA length" />
+        <TextField fx:id="shortMATextField" onAction="#shortMa"/>
+
+        <Label text="Set Long MA length" />
+        <TextField  fx:id="longMATextField" onAction="#longMa"/>
+
+        <Label text="Commisions %" />
+        <TextField  fx:id="commissions" onAction="#commissionSetting" />
+
+        <CheckBox text="Long / Short" fx:id="longShort" onAction="#longShortSelection"/>
+
+        <Label text="Profit target %" />
+        <TextField  fx:id="profitTarget" onAction="#setProfitTarget" />
+
+        <Label text="Stop loss %" />
+        <TextField  fx:id="stopLoss" onAction="#setStopLoss" />
+
+        <Button text="Run simulation" fx:id="simulation" onAction="#runSimulation"/>
+    </VBox>
+
+
+</GridPane>
